@@ -118,33 +118,63 @@ export default function WeatherWidget() {
     const condition = weatherData.weather[0].main.toLowerCase();
     const temp = weatherData.main.temp;
 
-    // Simple rule-based insights (in a real app, this could use an actual AI API)
-    let insight = "";
+    // Get current hour to determine time of day
+    const currentHour = new Date().getHours();
+
+    // Determine time of day
+    let timeOfDay = "";
+    let timeInsight = "";
+
+    if (currentHour >= 5 && currentHour < 12) {
+      timeOfDay = "morning";
+      timeInsight = "Morning hours are ideal for analytical tasks. Your brain is most alert for complex problem-solving now.";
+    } else if (currentHour >= 12 && currentHour < 17) {
+      timeOfDay = "afternoon";
+      timeInsight = "Afternoon is perfect for collaborative work. Your communication skills peak during these hours.";
+    } else if (currentHour >= 17 && currentHour < 21) {
+      timeOfDay = "evening";
+      timeInsight = "Evening brings enhanced creativity. Great time for brainstorming or designing new features.";
+    } else if (currentHour >= 21 || currentHour < 1) {
+      timeOfDay = "night";
+      timeInsight = "Night hours can offer distraction-free focus. Consider tackling tasks requiring deep concentration.";
+    } else {
+      timeOfDay = "midnight";
+      timeInsight = "Late night coding can be productive, but remember to balance with adequate rest for optimal performance tomorrow.";
+    }
+
+    // Weather condition insights (existing code)
+    let weatherInsight = "";
 
     if (condition.includes("clear") || condition.includes("sun")) {
-      insight =
-        "Perfect sunny day! Research shows natural light boosts productivity. Consider working near a window to maximize focus.";
+      weatherInsight = "Perfect sunny day! Research shows natural light boosts productivity. Consider working near a window to maximize focus.";
     } else if (condition.includes("rain") || condition.includes("drizzle")) {
-      insight =
-        "Rainy days enhance creative thinking. Studies show ambient rain sounds can improve concentration by 30%.";
+      weatherInsight = "Rainy days enhance creative thinking. Studies show ambient rain sounds can improve concentration by 30%.";
     } else if (condition.includes("cloud")) {
-      insight =
-        "Cloudy weather reduces screen glare, ideal for coding sessions. Take advantage with a longer focused work period.";
+      weatherInsight = "Cloudy weather reduces screen glare, ideal for coding sessions. Take advantage with a longer focused work period.";
     } else if (condition.includes("snow")) {
-      insight =
-        "Snowy conditions create a natural sound dampening effect. Excellent for deep work requiring minimal distractions.";
+      weatherInsight = "Snowy conditions create a natural sound dampening effect. Excellent for deep work requiring minimal distractions.";
     } else if (condition.includes("thunder") || condition.includes("storm")) {
-      insight =
-        "Stormy weather can increase alertness. Good time for brainstorming or tackling complex problems.";
+      weatherInsight = "Stormy weather can increase alertness. Good time for brainstorming or tackling complex problems.";
     } else if (temp > 30) {
-      insight =
-        "High temperatures may reduce cognitive performance. Consider more breaks and stay hydrated while coding.";
+      weatherInsight = "High temperatures may reduce cognitive performance. Consider more breaks and stay hydrated while coding.";
     } else if (temp < 5) {
-      insight =
-        "Cold weather increases glucose consumption. Have a warm drink nearby to maintain optimal brain function during coding.";
+      weatherInsight = "Cold weather increases glucose consumption. Have a warm drink nearby to maintain optimal brain function during coding.";
     } else {
-      insight =
-        "Current conditions are balanced. A good time for both analytical and creative programming tasks.";
+      weatherInsight = "Current conditions are balanced. A good time for both analytical and creative programming tasks.";
+    }
+
+    // Combine time and weather insights
+    let insight = `${timeOfDay.charAt(0).toUpperCase() + timeOfDay.slice(1)} + ${condition}: ${timeInsight} ${weatherInsight}`;
+
+    // For special combinations, provide unique insights
+    if (timeOfDay === "morning" && (condition.includes("clear") || condition.includes("sun"))) {
+      insight = "Morning sunshine is optimal for productivity. Your circadian rhythm is perfectly aligned with natural light, making this an ideal time for your most important coding tasks.";
+    } else if (timeOfDay === "evening" && (condition.includes("rain") || condition.includes("drizzle"))) {
+      insight = "Evening rain creates a perfect coding atmosphere. The combination of natural white noise and your brain's evening creativity peak is excellent for solving complex problems.";
+    } else if (timeOfDay === "night" && condition.includes("clear")) {
+      insight = "Clear night skies can inspire big-picture thinking. Consider stepping outside briefly to reset your mental state before diving into architectural decisions.";
+    } else if (timeOfDay === "midnight" && (condition.includes("thunder") || condition.includes("storm"))) {
+      insight = "Midnight storms create a dramatic backdrop for coding breakthroughs. The heightened alertness from both the late hour and weather conditions can lead to unexpected solutions.";
     }
 
     setAiInsight(insight);
