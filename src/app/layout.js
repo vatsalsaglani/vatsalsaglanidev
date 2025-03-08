@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://vatsalsaglani.pages.dev"),
   title: "Vatsal Saglani | Data Science Lead - GenAI",
   description: "Data Science Lead specializing in Generative AI, Autonomous Agents, and AI-powered testing solutions with expertise in LLMs, PyTorch, and Computer Vision.",
   keywords: "Vatsal Saglani, Data Science, Generative AI, Autonomous Agents, Machine Learning, LLMs, PyTorch, Computer Vision",
@@ -50,11 +51,15 @@ export const metadata = {
     index: true,
     follow: true,
   },
+};
+
+export const viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#ffffff" },
     { media: "(prefers-color-scheme: dark)", color: "#000000" },
   ],
-  viewport: "width=device-width, initial-scale=1",
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({ children }) {
