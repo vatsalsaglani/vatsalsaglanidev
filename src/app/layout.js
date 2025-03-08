@@ -33,7 +33,7 @@ export const metadata = {
     siteName: "Vatsal Saglani",
     images: [
       {
-        url: "/assets/vatsal.JPG",
+        url: "/assets/vatsal-saglani-banner-og.png",
         width: 800,
         height: 800,
         alt: "Vatsal Saglani"
@@ -44,7 +44,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Vatsal Saglani | Data Science Lead - GenAI",
     description: "Data Science Leader specializing in Generative AI and Autonomous Agents",
-    images: ["/assets/vatsal.JPG"],
+    images: ["/assets/vatsal-saglani-banner-og.png"],
     creator: "@vatsalsaglani",
   },
   robots: {
