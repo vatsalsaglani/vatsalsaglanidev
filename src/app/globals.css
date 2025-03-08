@@ -2,20 +2,147 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    @apply transition-colors duration-200;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom utility classes for gradients */
+.gradient-primary {
+  @apply bg-gradient-to-r from-[#FF4B1F] to-[#1FDDFF];
+}
+
+@layer components {
+  .dock-icon {
+    @apply relative flex items-center justify-center;
+  }
+
+  /* Optional: Add a subtle bounce animation for dock icons */
+  .dock-icon:hover {
+    @apply animate-bounce;
+  }
+}
+
+@layer utilities {
+  /* Use a named class instead of bracket notation for negative z-index */
+  .z-negative {
+    z-index: -1;
+  }
+}
+
+/* Resizable styles */
+.react-resizable {
+  position: relative;
+}
+
+.react-resizable-handle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  bottom: 0;
+  right: 0;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2IDYiIHN0eWxlPSJiYWNrZ3JvdW5kLWNvbG9yOiNmZmZmZmYwMCIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iNnB4Ij48ZyBvcGFjaXR5PSIwLjMwMiI+PHBhdGggZD0iTSA2IDYgTCAwIDYgTCAwIDQuMiBMIDQgNC4yIEwgNC4yIDQuMiBMIDQuMiAwIEwgNiAwIEwgNiA2IEwgNiA2IFoiIGZpbGw9IiMwMDAwMDAiLz48L2c+PC9zdmc+");
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  box-sizing: border-box;
+  cursor: se-resize;
+  opacity: 0.5;
+}
+
+.react-resizable-handle:hover {
+  opacity: 1;
+}
+
+/* Custom scrollbar for webkit browsers (Chrome, Safari, newer Edge) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Light mode scrollbar */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(156, 163, 175, 0.5); /* gray-400 with opacity */
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(107, 114, 128, 0.6); /* gray-500 with opacity */
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-thumb {
+  background-color: rgba(75, 85, 99, 0.5); /* gray-600 with opacity */
+  border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(107, 114, 128, 0.6); /* gray-500 with opacity */
+}
+
+/* Firefox scrollbar (uses different syntax) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
+}
+
+.dark * {
+  scrollbar-color: rgba(75, 85, 99, 0.5) transparent;
+}
+
+/* Hide scrollbars for specific elements when not hovering */
+.hide-scrollbar:not(:hover) {
+  scrollbar-width: none; /* Firefox */
+}
+
+.hide-scrollbar:not(:hover)::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+
+/* Mobile-first media queries */
+@media (max-width: 640px) {
+  .mobile-window {
+    position: fixed !important;
+    top: 48px !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: calc(100vh - 48px - 70px) !important; /* Account for dock height */
+    border-radius: 0 !important;
+  }
+  
+  .mobile-content {
+    font-size: 14px !important;
+  }
+  
+  .mobile-hidden {
+    display: none !important;
+  }
+}
+
+/* Add these classes to your existing CSS file */
+.grid-layer,
+.mobile-grid-layer {
+  pointer-events: none; /* Make the container transparent to mouse events */
+}
+
+.widget-container,
+.mobile-widget-container {
+  pointer-events: auto; /* But make the widgets themselves clickable */
+}
+
+/* Create separate stacking contexts */
+main {
+  position: relative;
+  z-index: 10; /* Higher than widgets */
+}
+
+/* Optional - add this if you need specific window styles */
+.window-element {
+  z-index: 100; /* Even higher than main */
+  position: relative;
 }
