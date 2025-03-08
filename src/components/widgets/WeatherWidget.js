@@ -29,7 +29,7 @@ export default function WeatherWidget() {
 
               try {
                 // Fetch weather data using OpenWeatherMap API
-                const apiKey = "9b7ae0ce551a31df826fc1d59f23b579"; // Replace with your API key
+                const apiKey = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
                 
                 const weatherResponse = await fetch(
                   `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`
