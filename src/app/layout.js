@@ -26,7 +26,7 @@ export const metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://vatsalsaglani.com",
+    url: "https://vatsalsaglani.pages.dev",
     title: "Vatsal Saglani | Data Science Lead - GenAI",
     description: "Data Science Leader with expertise in Autonomous Agents, AI Testing, and Machine Learning applications",
     siteName: "Vatsal Saglani",
