@@ -66,11 +66,15 @@ const LaTeXResumeContent = () => {
 \subsection*{Data Science Lead - GenAI}
 \textbf{Qyrus} \hfill July 2024 - Present\\
 \begin{itemize}
-    \item Leading a team for building agentic workflows for real autonomous testing for Web, Mobile, and Desktop applications and APIs.
-    \item Developing SageMaker pipelines for enterprise-wide processing and training jobs.
-    \item Built Python packages for DRY and efficient LLM usage over multiple providers like OpenAI, Azure OpenAI, Bedrock, Groq, and others and custom LLM inference on SageMaker.
-    \item Working on building multi-agent systems for mimicking human interactions across various platforms.
-    \item Working on nuance prompt engineering techniques for multi-agent workflows.
+    \item Leading the team in developing agentic workflows to achieve real autonomous testing capabilities across Web, Mobile, Desktop applications, and APIs.
+    \item Built and deployed a Browser use Framework using Playwright, featuring adaptive streaming, accessibility checks, and HAR logging, becoming the global standard for browser automation in AI-driven testing.
+    \item Developed and maintained Python packages (QyrusAI SDK, QAI Package) ensuring DRY, efficient, and standardized access to various LLM providers including OpenAI, Azure OpenAI, AWS Bedrock, Groq, and Claude.
+    \item Architected and implemented multi-agent AI orchestration, simplifying complex automation scenarios and enabling seamless interactions across multiple AI agents.
+    \item Developed DevBot, an internal AI productivity chatbot integrated with multiple advanced LLMs, significantly boosting productivity for developers across UI, backend, and data teams.
+    \item Built scalable AWS SageMaker pipelines, enabling efficient enterprise-wide training and processing for various AI and data-related workflows.
+    \item Created domain-specific knowledgebase integrations (Qyrus, SAP, Calypso) improving LLM performance and accuracy in industry-specific applications.
+    \item Developed and published the QyrusAI SDK on PyPi, including automated testing, publishing workflows, and comprehensive documentation to facilitate easy adoption.
+    \item Proactively collaborated with client-facing teams, providing comprehensive client-facing documentation on AI safety, compliance, and ethical practices, enhancing client trust and facilitating smooth onboarding.
 \end{itemize}
 \subsection*{Senior Data Science Engineer}
 \textbf{Qyrus} \hfill November 2021 - July 2024\\
