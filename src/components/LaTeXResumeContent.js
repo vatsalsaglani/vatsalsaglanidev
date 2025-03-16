@@ -42,7 +42,7 @@ const LaTeXResumeContent = () => {
     {\Huge\bfseries Vatsal Saglani}\\[0.5em]
     \textit{Software Developer, AI Engineer, Data Scientist}\\[0.5em]
     Email: \href{mailto:saglanivatsal@gmail.com}{saglanivatsal@gmail.com} $\cdot$
-    Website: \href{https://vatsalsaglani.vercel.app}{vatsalsaglani.vercel.app} $\cdot$
+    Website: \href{https://vatsalsaglani.pages.dev}{vatsalsaglani.pages.dev} $\cdot$
     LinkedIn: \href{https://linkedin.com/in/vatsalsaglani}{vatsalsaglani} $\cdot$ \\
     Github: \href{https://github.com/vatsalsaglani/}{vatsalsaglani} $\cdot$ 
     Medium: \href{https://thevatsalsaglani.medium.com/}{thevatsalsaglani} $\cdot$ 
@@ -234,8 +234,8 @@ NextJS
     const email = emailMatch ? emailMatch[1] : 'saglanivatsal@gmail.com';
     
     const websiteMatch = header.match(/Website: \\href{([^}]+)}{([^}]+)}/);
-    const website = websiteMatch ? websiteMatch[2] : 'vatsalsaglani.vercel.app';
-    const websiteUrl = websiteMatch ? websiteMatch[1] : 'https://vatsalsaglani.vercel.app';
+    const website = websiteMatch ? websiteMatch[2] : 'vatsalsaglani.pages.dev';
+    const websiteUrl = websiteMatch ? websiteMatch[1] : 'https://vatsalsaglani.pages.dev';
     
     const linkedinMatch = header.match(/LinkedIn: \\href{([^}]+)}{([^}]+)}/);
     const linkedin = linkedinMatch ? linkedinMatch[2] : 'vatsalsaglani';

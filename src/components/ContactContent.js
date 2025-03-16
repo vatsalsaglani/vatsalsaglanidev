@@ -18,7 +18,7 @@ const ContactContent = () => {
   // Contact information from LaTeX resume
   const contactInfo = {
     email: "saglanivatsal@gmail.com",
-    website: "vatsalsaglani.vercel.app",
+    website: "vatsalsaglani.pages.dev",
     linkedin: "vatsalsaglani",
     github: "vatsalsaglani",
     medium: "thevatsalsaglani",
