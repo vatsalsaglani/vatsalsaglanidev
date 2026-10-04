@@ -6,7 +6,7 @@ import { publications } from "@/data/publications";
 import { skills } from "@/data/skills";
 import { fadeUp, stagger, viewportOnce } from "@/lib/motion";
 import SectionHeading from "./SectionHeading";
-import AgentTrace from "./AgentTrace";
+import PortraitCanvas from "./PortraitCanvas";
 import { ArrowUpRight } from "./SectionIcons";
 
 const reveal = {
@@ -16,13 +16,15 @@ const reveal = {
   viewport: viewportOnce,
 };
 
-function Trace() {
+function Portrait() {
   return (
     <motion.figure variants={fadeUp} initial="hidden" whileInView="show" viewport={viewportOnce} className="mx-auto max-w-xs sm:max-w-sm lg:max-w-none">
-      <AgentTrace />
+      <div className="relative aspect-[4/5] overflow-hidden rounded-xl2 border border-line/10 bg-surface">
+        <PortraitCanvas src={profile.photo} alt={`Halftone portrait of ${profile.name}`} focus={{ x: 0.64, y: 0.5 }} zoom={1.55} />
+      </div>
       <figcaption className="eyebrow mt-4 flex items-center justify-between">
-        <span>A simulated run, looping</span>
-        <span className="text-accent">{profile.location}</span>
+        <span>{profile.location}</span>
+        <span className="text-accent">Hover or tap to develop</span>
       </figcaption>
     </motion.figure>
   );
@@ -114,7 +116,7 @@ export default function About() {
 
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:sticky lg:top-28 lg:col-span-5 lg:self-start">
-            <Trace />
+            <Portrait />
           </div>
 
           <div className="lg:col-span-7">
