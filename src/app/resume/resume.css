@@ -1,0 +1,25 @@
+/* Print-optimised resume. On paper the sheet is always black on white, whatever the site theme. */
+@page { margin: 16mm; }
+
+@media print {
+  .resume-page {
+    --bg: 255 255 255;
+    --raised: 255 255 255;
+    --fg: 17 17 17;
+    --muted: 85 85 85;
+    --line: 17 17 17;
+    --accent: 17 17 17;
+    background: #fff;
+    font-size: 10.5pt;
+  }
+  .resume-sheet {
+    max-width: none;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+    background: transparent;
+  }
+  .resume-sheet h2 { break-after: avoid; }
+  .resume-entry, .resume-project { break-inside: avoid; }
+  .resume-sheet a { text-decoration: none; }
+}

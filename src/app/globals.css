@@ -2,147 +2,105 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  * {
-    @apply transition-colors duration-200;
-  }
+/* ------------------------------------------------------------------
+   Design tokens. Colors are stored as space-separated RGB channels so
+   Tailwind can apply opacity modifiers (e.g. bg-accent/20).
+   ------------------------------------------------------------------ */
+:root {
+  --bg: 245 242 234;        /* warm paper */
+  --surface: 250 248 243;
+  --raised: 255 255 255;
+  --fg: 20 19 18;
+  --muted: 101 97 89;
+  --line: 20 19 18;         /* use with low alpha: border-line/10 */
+  --accent: 229 70 26;      /* signal orange */
+  --accent-fg: 255 255 255;
+  --signal: 22 163 74;      /* availability green */
+  --grain-opacity: 0.06;
+  color-scheme: light;
 }
 
-/* Custom utility classes for gradients */
-.gradient-primary {
-  @apply bg-gradient-to-r from-[#FF4B1F] to-[#1FDDFF];
+:root[data-theme="dark"] {
+  --bg: 11 11 14;           /* near-black ink */
+  --surface: 17 17 22;
+  --raised: 24 24 30;
+  --fg: 243 239 230;        /* warm off-white */
+  --muted: 154 150 140;
+  --line: 243 239 230;
+  --accent: 255 92 42;
+  --accent-fg: 20 19 18;
+  --signal: 74 222 128;
+  --grain-opacity: 0.09;
+  color-scheme: dark;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+  body {
+    @apply bg-bg text-fg font-sans antialiased;
+    font-feature-settings: "ss01", "cv11", "liga";
+    text-rendering: optimizeLegibility;
+  }
+  ::selection { background: rgb(var(--accent) / 0.9); color: rgb(var(--accent-fg)); }
+  :focus-visible { outline: 2px solid rgb(var(--accent)); outline-offset: 3px; border-radius: 2px; }
+  h1, h2, h3 { text-wrap: balance; }
+  p { text-wrap: pretty; }
 }
 
 @layer components {
-  .dock-icon {
-    @apply relative flex items-center justify-center;
+  .wrap { @apply mx-auto w-full max-w-wrap px-gutter; }
+  .eyebrow { @apply font-mono text-[11px] uppercase tracking-[0.18em] text-muted; }
+  .hairline { @apply border-line/10; }
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 100% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   }
-
-  /* Optional: Add a subtle bounce animation for dock icons */
-  .dock-icon:hover {
-    @apply animate-bounce;
-  }
+  .link-underline:hover { background-size: 0% 1px; background-position: 100% 100%; }
+  .btn { @apply inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-300 ease-out; }
+  .btn-primary { @apply btn bg-fg text-bg hover:bg-accent hover:text-accent-fg; }
+  .btn-ghost { @apply btn border border-line/15 hover:border-line/40; }
+  .chip { @apply inline-flex items-center rounded-full border border-line/15 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-muted; }
+  .card { @apply rounded-xl2 border border-line/10 bg-surface shadow-card; }
 }
 
-@layer utilities {
-  /* Use a named class instead of bracket notation for negative z-index */
-  .z-negative {
-    z-index: -1;
-  }
+/* Film grain overlay, mounted once in the layout. */
+.grain {
+  pointer-events: none;
+  position: fixed;
+  inset: -50%;
+  z-index: 60;
+  width: 200%;
+  height: 200%;
+  opacity: var(--grain-opacity);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  animation: grain 1.4s steps(4) infinite;
 }
-
-/* Resizable styles */
-.react-resizable {
-  position: relative;
+@keyframes grain {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(-3%, 2%); }
+  50% { transform: translate(2%, -3%); }
+  75% { transform: translate(-1%, 1%); }
+  100% { transform: translate(0, 0); }
 }
+@media (prefers-reduced-motion: reduce) { .grain { animation: none; } }
 
-.react-resizable-handle {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  bottom: 0;
-  right: 0;
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2IDYiIHN0eWxlPSJiYWNrZ3JvdW5kLWNvbG9yOiNmZmZmZmYwMCIgeD0iMHB4IiB5PSIwcHgiIHdpZHRoPSI2cHgiIGhlaWdodD0iNnB4Ij48ZyBvcGFjaXR5PSIwLjMwMiI+PHBhdGggZD0iTSA2IDYgTCAwIDYgTCAwIDQuMiBMIDQgNC4yIEwgNC4yIDQuMiBMIDQuMiAwIEwgNiAwIEwgNiA2IEwgNiA2IFoiIGZpbGw9IiMwMDAwMDAiLz48L2c+PC9zdmc+");
-  background-position: bottom right;
-  background-repeat: no-repeat;
-  background-origin: content-box;
-  box-sizing: border-box;
-  cursor: se-resize;
-  opacity: 0.5;
-}
+/* Thin, theme-aware scrollbars */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgb(var(--fg) / 0.18); border-radius: 999px; border: 3px solid rgb(var(--bg)); }
+::-webkit-scrollbar-thumb:hover { background: rgb(var(--fg) / 0.32); }
 
-.react-resizable-handle:hover {
-  opacity: 1;
-}
-
-/* Custom scrollbar for webkit browsers (Chrome, Safari, newer Edge) */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-/* Light mode scrollbar */
-::-webkit-scrollbar-thumb {
-  background-color: rgba(156, 163, 175, 0.5); /* gray-400 with opacity */
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(107, 114, 128, 0.6); /* gray-500 with opacity */
-}
-
-/* Dark mode scrollbar */
-.dark ::-webkit-scrollbar-thumb {
-  background-color: rgba(75, 85, 99, 0.5); /* gray-600 with opacity */
-  border-radius: 4px;
-}
-
-.dark ::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(107, 114, 128, 0.6); /* gray-500 with opacity */
-}
-
-/* Firefox scrollbar (uses different syntax) */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
-}
-
-.dark * {
-  scrollbar-color: rgba(75, 85, 99, 0.5) transparent;
-}
-
-/* Hide scrollbars for specific elements when not hovering */
-.hide-scrollbar:not(:hover) {
-  scrollbar-width: none; /* Firefox */
-}
-
-.hide-scrollbar:not(:hover)::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Edge */
-}
-
-/* Mobile-first media queries */
-@media (max-width: 640px) {
-  .mobile-window {
-    position: fixed !important;
-    top: 48px !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: calc(100vh - 48px - 70px) !important; /* Account for dock height */
-    border-radius: 0 !important;
-  }
-  
-  .mobile-content {
-    font-size: 14px !important;
-  }
-  
-  .mobile-hidden {
-    display: none !important;
-  }
-}
-
-/* Add these classes to your existing CSS file */
-.grid-layer,
-.mobile-grid-layer {
-  pointer-events: none; /* Make the container transparent to mouse events */
-}
-
-.widget-container,
-.mobile-widget-container {
-  pointer-events: auto; /* But make the widgets themselves clickable */
-}
-
-/* Create separate stacking contexts */
-main {
-  position: relative;
-  z-index: 10; /* Higher than widgets */
-}
-
-/* Optional - add this if you need specific window styles */
-.window-element {
-  z-index: 100; /* Even higher than main */
-  position: relative;
+/* Print: used by the /resume page */
+@media print {
+  .grain, .no-print { display: none !important; }
+  body { background: #fff !important; color: #111 !important; }
+  a { color: inherit; text-decoration: none; }
 }

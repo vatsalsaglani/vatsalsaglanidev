@@ -1,96 +1,57 @@
-# Vatsal Saglani's Portfolio
+# vatsalsaglani.pages.dev
 
-A modern, interactive portfolio website showcasing Vatsal Saglani's professional experience, skills, projects, and achievements. Built with Next.js and React, this portfolio features a unique macOS-inspired desktop interface, providing visitors with an engaging and interactive experience.
+Personal portfolio of Vatsal Saglani: work, experience, writing, a printable resume and a contact form. A static Next.js site, deployed to Cloudflare Pages and mirrored on GitHub Pages.
 
-## 🌟 Features
+## Design
 
-- **macOS-Inspired Interface**: Complete with login screen, dock, windows, and interactive elements
-- **Dark/Light Mode**: Seamless theme switching to suit user preferences
-- **Responsive Design**: Fully optimized for all device sizes and types
-- **Interactive Windows**: Draggable and resizable windows for different content sections
-- **Professional Timeline**: Visual representation of education and career history
-- **GitHub Integration**: Showcases top starred and recently updated repositories
-- **Blog Integration**: Displays Medium blog posts via RSS feed
-- **Resume Viewer**: LaTeX-styled resume with download option
-- **Contact Form**: Direct way to reach out
-- **Interactive Games**: Fun mini-games like Dino Game and Bounce Game
-- **3D Background Effects**: Engaging space-themed background for certain sections
+An editorial lab notebook: dark-first warm ink with a warm off-white paper theme, one signal-orange accent, huge Instrument Serif headings with italic emphasis, Geist for body text and Geist Mono for labels. Sections are numbered, divided by hairlines, and revealed with restrained framer-motion transitions.
 
-## 🛠️ Technologies
+## Stack
 
-- **Framework**: Next.js 15 with React 19
-- **Styling**: TailwindCSS
-- **Animations**: Framer Motion
-- **3D Effects**: Three.js
-- **Markdown Rendering**: React Markdown with syntax highlighting
-- **PDF Generation**: jsPDF with html2canvas
-- **Window Management**: react-draggable and react-resizable
-- **Math Typesetting**: KaTeX
+- Next.js 15 (app router, static export), React 19
+- Tailwind CSS 3 with CSS-variable colour tokens (dark and light themes)
+- framer-motion
+- Plain JavaScript, no runtime dependencies beyond the above
 
-## 🚀 Getting Started
+## Project structure
 
-### Prerequisites
-
-- Node.js (latest LTS version recommended)
-- npm or yarn
-
-### Installation
-
-1. Clone the repository
-```bash
-git clone https://github.com/vatsalsaglani/vatsalsaglani-portfolio.git
-cd vatsalsaglani-portfolio
+```
+src/
+  app/            layout, home page, /resume, global styles and design tokens
+  components/     page sections, Resume, Contact, Footer, shared UI
+  data/           all site content (see below) plus generated snapshots
+  lib/            motion presets, utilities, data merging (getProjects, getWriting)
+scripts/
+  refresh-data.mjs          fetch GitHub stars and Medium posts into snapshots
+  publish-github-pages.sh   build and sync to the GitHub Pages repo
+public/                     static assets, resume.tex
 ```
 
-2. Install dependencies
-```bash
-npm install
-# or
-yarn install
+## Commands
+
+```
+npm run dev            # local dev server
+npm run build          # static export to out/
+npm run refresh:data   # update src/data/*-snapshot.json
+npm run publish:gh     # build and sync out/ into ../vatsalsaglani.github.io
 ```
 
-3. Create a `.env.local` file in the root directory with required environment variables
+`refresh:data` calls the public GitHub and Medium endpoints. Set `GITHUB_TOKEN` to avoid unauthenticated rate limits. If a fetch fails, the previous snapshot is kept and the script still exits 0.
 
-4. Run the development server
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Editing content
 
-5. Open [http://localhost:3000](http://localhost:3000) in your browser to view the portfolio
+Everything lives in `src/data/`:
 
-## 📄 Content Sections
+- `profile.js`: identity, links, bio, availability, contact endpoint, nav
+- `experience.js`: work and education entries (also feeds the resume)
+- `projects.js`: curated projects; star counts are overridden by the GitHub snapshot
+- `writing.js`: curated articles; newer Medium posts from the snapshot are merged in
+- `skills.js`, `publications.js`: resume and about content
 
-- **About Me**: Education, professional journey, publications, and achievements
-- **Projects**: Showcase of GitHub repositories with file explorer and code viewer
-- **Resume**: Interactive LaTeX-styled resume with download capability
-- **Blog**: Integration with Medium posts
-- **Contact**: Form to get in touch
-- **Open Source**: Highlights contributions to open source projects
-- **Terminal**: GitHub activity in terminal-like interface
-- **Games**: Interactive mini-games for fun
+The resume at `/resume/` is built from these files. `public/resume.tex` is the LaTeX version of the same content; update it when the data changes.
 
-## 🖥️ Deployment
+## Deployment
 
-This project is set up for deployment on platforms like Vercel or Netlify. Use the build command for production:
+**Cloudflare Pages** (primary): build command `npm run build`, output directory `out`. The site is a static export, so no adapter or server runtime is needed.
 
-```bash
-npm run build
-npm run start
-```
-
-## 📝 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
-## 📬 Contact
-
-For questions or feedback, reach out to Vatsal Saglani:
-
-- GitHub: [@vatsalsaglani](https://github.com/vatsalsaglani)
-- Medium: [@thevatsalsaglani](https://medium.com/@thevatsalsaglani)
-
----
-
-This README was generated based on the codebase exploration. The portfolio showcases Vatsal Saglani's skills in web development, design, and software engineering through an interactive, macOS-inspired interface.
+**GitHub Pages mirror**: the `vatsalsaglani.github.io` repo serves the static build from its root with a `.nojekyll` file. Clone it next to this repo and run `npm run publish:gh` (or pass another path: `bash scripts/publish-github-pages.sh /path/to/repo`). The script builds, replaces the target contents (keeping `.git`, `README.md` and `CNAME`), and prints the git commands to commit and push.

@@ -1,62 +1,48 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from '@/context/ThemeContext';
+import { ThemeProvider, themeInitScript } from "@/components/ThemeProvider";
+import { profile } from "@/data/profile";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const sans = Geist({ variable: "--font-sans", subsets: ["latin"], display: "swap" });
+const mono = Geist_Mono({ variable: "--font-mono", subsets: ["latin"], display: "swap" });
+const serif = Instrument_Serif({
+  variable: "--font-serif",
   subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const title = `${profile.name} — ${profile.role} at ${profile.company}`;
+const description =
+  "Vatsal Saglani builds agents and the tools around them: autonomous testing at Qyrus, native macOS apps in Swift, and open-source LLM tooling.";
 
 export const metadata = {
-  metadataBase: new URL("https://vatsalsaglani.pages.dev"),
-  title: "Vatsal Saglani | Data Science Lead - GenAI",
-  description: "Data Science Lead specializing in Generative AI, Autonomous Agents, and AI-powered testing solutions with expertise in LLMs, PyTorch, and Computer Vision.",
-  keywords: "Vatsal Saglani, Data Science, Generative AI, Autonomous Agents, Machine Learning, LLMs, PyTorch, Computer Vision",
-  authors: [{ name: "Vatsal Saglani", url: "https://github.com/vatsalsaglani" }],
-  creator: "Vatsal Saglani",
-  icons: {
-    icon: [{ url: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>" }],
-    apple: [{ url: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>" }],
-    shortcut: [{ url: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>" }],
-  },
+  metadataBase: new URL(profile.siteUrl),
+  title,
+  description,
+  keywords: ["Vatsal Saglani", "GenAI", "AI agents", "MCP", "LLM", "Swift", "macOS", "Qyrus", "machine learning", "Bengaluru"],
+  authors: [{ name: profile.name, url: profile.links.github.url }],
+  creator: profile.name,
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://vatsalsaglani.pages.dev",
-    title: "Vatsal Saglani | Data Science Lead - GenAI",
-    description: "Data Science Leader with expertise in Autonomous Agents, AI Testing, and Machine Learning applications",
-    siteName: "Vatsal Saglani",
-    images: [
-      {
-        url: "/assets/vatsal-saglani-banner-og.png",
-        width: 800,
-        height: 800,
-        alt: "Vatsal Saglani"
-      }
-    ],
+    url: profile.siteUrl,
+    title,
+    description,
+    siteName: profile.name,
+    images: [{ url: profile.ogImage, width: 1200, height: 630, alt: `${profile.name} — portfolio` }],
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Vatsal Saglani | Data Science Lead - GenAI",
-    description: "Data Science Leader specializing in Generative AI and Autonomous Agents",
-    images: ["/assets/vatsal-saglani-banner-og.png"],
-    creator: "@vatsalsaglani",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  twitter: { card: "summary_large_image", title, description, images: [profile.ogImage], creator: `@${profile.links.x.handle}` },
+  robots: { index: true, follow: true },
+  icons: { icon: "/favicon.svg", shortcut: "/favicon.svg", apple: "/favicon.svg" },
 };
 
 export const viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#000000" },
+    { media: "(prefers-color-scheme: light)", color: "#f5f2ea" },
+    { media: "(prefers-color-scheme: dark)", color: "#0b0b0e" },
   ],
   width: "device-width",
   initialScale: 1,
@@ -64,13 +50,14 @@ export const viewport = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        suppressHydrationWarning
-      >
+    <html lang="en" suppressHydrationWarning className={`${sans.variable} ${mono.variable} ${serif.variable}`}>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
+      <body className="min-h-dvh">
         <ThemeProvider>
           {children}
+          <div className="grain" aria-hidden="true" />
         </ThemeProvider>
       </body>
     </html>
