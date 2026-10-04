@@ -93,8 +93,8 @@ export const systems = [
     tags: ["IDE extension", "MCP", "Skills"],
   },
   {
-    slug: "duomo",
-    title: "DUOMO: a compact computer-use model",
+    slug: "computer-use-model",
+    title: "A compact computer-use model",
     problem: "General vision-language models are large and slow for the narrow job of looking at a screen and deciding where to act.",
     role: "Prototyping",
     approach:

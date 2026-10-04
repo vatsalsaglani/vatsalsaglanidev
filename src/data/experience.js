@@ -21,7 +21,7 @@ export const experience = [
       "Built LLM and RAG evaluation and led LLM-as-judge integration for API testing; designing evaluation of full agent trajectories and persona scenarios with deterministic checks plus LLM judges, implementation ongoing.",
       "Implemented code-change impact analysis linking Python changes to business requirements and affected tests, surfacing misalignment, thin evidence and coverage gaps.",
       "Developed an IDE extension for code search and API test generation (assertions and test data), and skills for API testing and MCP-backed web testing in AI coding assistants.",
-      "Prototyping DUOMO, a compact vision-language computer-use model that predicts actions and coordinates from screenshots and objectives, including a direct spatial prediction head and training and evaluation scaffolding (research, not production).",
+      "Prototyping a compact vision-language computer-use model that predicts actions and coordinates from screenshots and objectives, including a direct spatial prediction head and training and evaluation scaffolding (research, not production).",
       "Set technical direction, mentor engineers and plan delivery with product stakeholders; partner with client-facing teams on responsible AI, safety and compliance documentation.",
       "Participate in Forrester and Gartner analyst briefings, explaining Qyrus's AI capabilities and demonstrating agent-driven testing workflows.",
     ],
