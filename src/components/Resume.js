@@ -89,7 +89,7 @@ export default function Resume() {
           <header className="mb-8">
             <h1 className="font-serif text-5xl leading-none tracking-tight">{profile.name}</h1>
             <p className="mt-3 text-base">
-              {profile.role}, {profile.company} · {profile.headline} · {profile.location}
+              {profile.role}, <a href={profile.companyUrl} className="underline underline-offset-2">{profile.company}</a> · {profile.headline} · {profile.location}
             </p>
             <p className="mt-3 flex flex-wrap gap-x-4 gap-y-1 font-mono text-xs text-muted">
               {contactLinks().map((link) => (

@@ -3,6 +3,7 @@
 import { useId, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion, useScroll, useSpring } from "framer-motion";
 import { experience, formatRange } from "@/data/experience";
+import { linkCompany } from "@/lib/linkify";
 import { EASE, fadeUp, viewportOnce } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 import SectionHeading from "./SectionHeading";
@@ -104,7 +105,7 @@ function Entry({ entry }) {
           {entry.location && <span> · {entry.location}</span>}
           {entry.employerNote && <span className="mt-1 block font-mono text-[11px] uppercase tracking-wider text-muted/80">{entry.employerNote}</span>}
         </p>
-        <p className="mt-4 max-w-2xl text-base leading-relaxed md:text-lg">{entry.summary}</p>
+        <p className="mt-4 max-w-2xl text-base leading-relaxed md:text-lg">{linkCompany(entry.summary)}</p>
         {entry.highlights.length > 0 && <Highlights items={entry.highlights} />}
         {entry.stack.length > 0 && (
           <ul className="mt-6 flex flex-wrap gap-2">

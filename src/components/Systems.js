@@ -102,7 +102,7 @@ export default function Systems() {
       <div className="wrap">
         <SectionHeading
           index="01"
-          eyebrow={`Systems · ${profile.company}`}
+          eyebrow={<>Systems · <a href={profile.companyUrl} target="_blank" rel="noopener noreferrer" className="link-underline text-fg">{profile.company}</a></>}
           title={
             <>
               Agents that test software, and what makes them <em>reliable</em>

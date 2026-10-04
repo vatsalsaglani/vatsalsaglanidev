@@ -15,13 +15,13 @@ const serif = Instrument_Serif({
 
 const title = `${profile.name} — ${profile.role} at ${profile.company}`;
 const description =
-  "Vatsal Saglani builds AI agents that test software, and the systems that make them reliable: agent SDKs, distributed runtimes, memory and evaluation at Qyrus, plus open-source LLM tooling.";
+  "Vatsal Saglani builds AI agents that test software, and the systems that make them reliable: agent SDKs, distributed runtimes, memory and evaluation at QyrusAI, plus open-source LLM tooling.";
 
 export const metadata = {
   metadataBase: new URL(profile.siteUrl),
   title,
   description,
-  keywords: ["Vatsal Saglani", "GenAI", "AI agents", "MCP", "LLM", "Swift", "macOS", "Qyrus", "machine learning", "Bengaluru"],
+  keywords: ["Vatsal Saglani", "GenAI", "AI agents", "MCP", "LLM", "Swift", "macOS", "QyrusAI", "machine learning", "Bengaluru"],
   authors: [{ name: profile.name, url: profile.links.github.url }],
   creator: profile.name,
   alternates: { canonical: "/" },

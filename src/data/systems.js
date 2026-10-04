@@ -1,4 +1,4 @@
-// Professional work at Qyrus, described as systems rather than product names.
+// Professional work at QyrusAI, described as systems rather than product names.
 // `maturity` is deliberately conservative: "shipped", "architected", "prototype" or "in progress".
 export const systems = [
   {

@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { now, profile } from "@/data/profile";
+import { linkCompany } from "@/lib/linkify";
 import { EASE } from "@/lib/motion";
 import FieldCanvas from "@/components/FieldCanvas";
 import Marquee from "@/components/Marquee";
@@ -144,7 +145,7 @@ export default function Hero() {
           </h1>
 
           <motion.p {...rise(0.75)} className="mt-8 max-w-2xl text-base text-muted md:mt-10 md:text-lg">
-            {profile.bio}
+            {linkCompany(profile.bio)}
           </motion.p>
 
           <motion.div {...rise(0.9)} className="mt-8 flex flex-wrap items-center gap-3 md:mt-10">

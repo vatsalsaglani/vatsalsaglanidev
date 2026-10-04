@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { profile } from "@/data/profile";
+import { linkCompany } from "@/lib/linkify";
 import { publications } from "@/data/publications";
 import { skills } from "@/data/skills";
 import { fadeUp, stagger, viewportOnce } from "@/lib/motion";
@@ -122,11 +123,11 @@ export default function About() {
           <div className="lg:col-span-7">
             <motion.div {...reveal} className="space-y-6 text-lg leading-relaxed text-muted">
               <motion.p variants={fadeUp} className="text-2xl leading-snug text-fg md:text-3xl">
-                {lead}
+                {linkCompany(lead)}
               </motion.p>
               {rest.map((para) => (
                 <motion.p key={para} variants={fadeUp}>
-                  {para}
+                  {linkCompany(para)}
                 </motion.p>
               ))}
             </motion.div>

@@ -221,7 +221,7 @@ export const projects = [
     slug: "bert4rec",
     name: "bert4rec",
     tagline: "A decoder-only transformer recommender.",
-    description: "Sequential movie recommendation with self-attention, trained in PyTorch and tuned with Optuna. The idea later shipped inside Qyrus as a next-step recommender for test authoring.",
+    description: "Sequential movie recommendation with self-attention, trained in PyTorch and tuned with Optuna. The idea later shipped inside QyrusAI as a next-step recommender for test authoring.",
     category: "ml",
     year: 2022,
     stars: 28,
