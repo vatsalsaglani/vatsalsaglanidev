@@ -3,7 +3,7 @@
 export const categories = [
   { id: "all", label: "All" },
   { id: "agents", label: "Agents & LLMs" },
-  { id: "mac", label: "Native macOS" },
+  { id: "mac", label: "Agentic experiments" },
   { id: "devtools", label: "Developer tools" },
   { id: "ml", label: "ML research" },
 ];
@@ -14,14 +14,14 @@ export const projects = [
     name: "Cider",
     tagline: "A calmer corner of your Mac.",
     description:
-      "A menu-bar companion that lives in the notch: watch your coding agents work, track tasks and linked plans, keep local Markdown notes, control music and see account usage without leaving what you are doing.",
+      "A menu-bar companion that lives in the notch: watch your coding agents work, track tasks and linked plans, keep local Markdown notes, control music and see account usage. Built almost entirely with coding agents as an experiment in agentic development.",
     category: "mac",
     year: 2026,
     stars: 1,
     language: "Swift",
     stack: ["Swift 6", "SwiftUI", "macOS 26"],
     repo: "https://github.com/vatsalsaglani/Cider",
-    featured: true,
+    featured: false,
     status: "Active",
   },
   {
@@ -29,14 +29,14 @@ export const projects = [
     name: "Capsule",
     tagline: "Compose-style orchestration for Apple's container runtime.",
     description:
-      "A native container manager for Apple silicon: a SwiftUI app plus a capsule CLI sharing one engine that translates Compose files into native volumes, networks and port publishing. Honest about the subset it supports.",
+      "A native container manager for Apple silicon: a SwiftUI app plus a capsule CLI sharing one engine that translates Compose files into native volumes, networks and port publishing. An agentic-development experiment: how far can agents take a systems-level app?",
     category: "mac",
     year: 2026,
     stars: 1,
     language: "Swift",
     stack: ["Swift 6.2", "SwiftUI", "SPM", "Apache-2.0"],
     repo: "https://github.com/vatsalsaglani/Capsule",
-    featured: true,
+    featured: false,
     status: "Developer preview",
   },
   {
@@ -44,7 +44,7 @@ export const projects = [
     name: "Tinker",
     tagline: "An open-source, bring-your-own-key AI coding assistant for VS Code.",
     description:
-      "Chat with your codebase using OpenAI, Anthropic, Gemini, Azure or Bedrock. File and symbol references, image attachments, tool use for files, git and diagnostics, and MCP server support. Works in Cursor and other forks too.",
+      "A coding agent for VS Code with a pluggable provider layer (OpenAI, Anthropic, Gemini, Azure, Bedrock) and keys kept in editor secret storage. Chat-first UX with file and symbol context, tool use for code search, files, git and diagnostics, MCP servers, and affordances for reviewing and applying changes.",
     category: "devtools",
     year: 2026,
     stars: 0,
@@ -97,7 +97,7 @@ export const projects = [
     language: "Python",
     stack: ["llama.cpp", "Phi-3", "Playwright"],
     repo: "https://github.com/vatsalsaglani/llama-cpp-search",
-    featured: false,
+    featured: true,
     status: "Stable",
   },
   {
@@ -140,7 +140,7 @@ export const projects = [
     language: "Python",
     stack: ["Qwen 2.5", "Async Python", "Local LLMs"],
     repo: "https://github.com/vatsalsaglani/swarmloka",
-    featured: false,
+    featured: true,
     status: "Experimental",
   },
   {
@@ -177,7 +177,7 @@ export const projects = [
     name: "rafu",
     tagline: "A native repo editor for the age of coding agents.",
     description:
-      "Not an IDE. A focused macOS editor for the targeted edits you make after a terminal agent has done the heavy lifting: restorable workspaces, TextKit editor groups, git changes, history and side-by-side diffs, Markdown preview with Mermaid.",
+      "Not an IDE. A focused macOS editor for the targeted edits you make after a terminal agent has done the heavy lifting: restorable workspaces, TextKit editor groups, git changes, history and side-by-side diffs. Another agent-built experiment.",
     category: "mac",
     year: 2026,
     stars: 0,

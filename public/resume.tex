@@ -2,168 +2,224 @@
 
 % Packages
 \usepackage[margin=1in]{geometry}
-\usepackage[hidelinks]{hyperref}
+\usepackage{hyperref}
 \usepackage{enumitem}
 \usepackage{titlesec}
 \usepackage{fancyhdr}
+
 
 % Page settings
 \pagestyle{fancy}
 \fancyhf{}
 \cfoot{\thepage}
-\setlist{itemsep=2pt,topsep=4pt}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=black,
+  citecolor=black
+}
+% Custom commands
+\newcommand{\sectionline}{
+  \noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
+}
 
 % Title format
 \titleformat{\section}
   {\normalfont\Large\bfseries}{\thesection}{1em}{}
 
+% Document
 \begin{document}
 
 % Header
 \begin{center}
-    {\Huge\bfseries Vatsal Saglani}\\[0.5em]
-    \textit{Data Science Lead, GenAI, Qyrus} $\cdot$ Bengaluru, India\\[0.5em]
-    \href{mailto:saglanivatsal@gmail.com}{saglanivatsal@gmail.com} $\cdot$
-    \href{https://vatsalsaglani.pages.dev}{vatsalsaglani.pages.dev} $\cdot$
-    \href{https://github.com/vatsalsaglani}{GitHub} $\cdot$
-    \href{https://linkedin.com/in/vatsalsaglani}{LinkedIn} $\cdot$ \\
-    \href{https://thevatsalsaglani.medium.com}{Medium} $\cdot$
-    \href{https://scholar.google.com/citations?user=3RB_jh0AAAAJ&hl=en}{Google Scholar}
+    {\Huge\bfseries Vatsal Saglani}\\[0.35em]
+    \textit{Data Science Lead (GenAI) \,|\, Agentic Systems \,|\, AI Platforms}\\[0.45em]
+
+    \small
+    Email: \href{mailto:saglanivatsal@gmail.com}{saglanivatsal@gmail.com} \,|\, 
+    Website: \href{https://vatsalsaglani.pages.dev}{vatsalsaglani.pages.dev} \,|\, 
+    LinkedIn: \href{https://linkedin.com/in/vatsalsaglani}{vatsalsaglani} \,|\, 
+    GitHub: \href{https://github.com/vatsalsaglani/}{vatsalsaglani}\\
+    Medium: \href{https://thevatsalsaglani.medium.com/}{thevatsalsaglani} \,|\, 
+    Google Scholar: \href{https://scholar.google.com/citations?user=3RB_jh0AAAAJ&hl=en}{Vatsal Saglani} \,|\, 
+    Phone: +91-9790960353
 \end{center}
-\noindent\rule{\linewidth}{0.4pt}
+\sectionline
+
+% Education
+\section*{Education}
+\subsection*{Vellore Institute of Technology}
+\textbf{B.Tech}, Computer Science and Engineering \hfill June 2015 - May 2019\\
+\begin{itemize}
+    \item Cumulative GPA: 8.48/10.
+    \item Awarded VIT Best Project in 2019 for an outstanding capstone project.
+\end{itemize}
+
 
 % Experience
 \section*{Experience}
-\subsection*{Data Science Lead, GenAI}
-\textbf{Qyrus} \hfill Jul 2024 -- Present\\
-Bengaluru
+\subsection*{Data Science Lead - GenAI}
+\textbf{Qyrus} \hfill July 2024 - Present\\
 \begin{itemize}
-    \item Built and deployed a Playwright-based browser-use framework with adaptive streaming, accessibility checks and HAR logging. It became the standard for browser automation across the product.
-    \item Architected multi-agent orchestration so complex automation scenarios are composed from cooperating agents instead of hand-written flows.
-    \item Maintain the QyrusAI SDK (published on PyPI) and the internal QAI package, giving every team one standard way to call OpenAI, Azure OpenAI, AWS Bedrock, Groq and Claude.
-    \item Built DevBot, an internal AI assistant with diagramming and code preview used by UI, backend and data teams.
-    \item Set up SageMaker pipelines for enterprise-wide training and processing, plus domain knowledge bases for Qyrus, SAP and Calypso that measurably improved answer quality.
-    \item Wrote the client-facing documentation on AI safety, compliance and ethics that enterprise onboarding now relies on.
+    \item Leading development of agentic workflows to deliver autonomous testing across Web, Mobile, Desktop applications, and APIs.
+    \item Built and deployed a browser-use automation framework with streaming execution, accessibility checks, and network-level trace capture, adopted internally as a standard for AI-driven automation.
+    \item Developed a distributed telemetry platform to track inference per call across heterogeneous endpoints, capturing operation metadata, inputs, outputs, tool traces, token usage, latency, errors, and diagnostics; shipped one-click cloud deployment templates and enabled telemetry as a flip switch via the shared SDK.
+    \item Architected a hybrid memory system combining graph relationships, semantic retrieval, structured metadata, and object storage to enable multimodal search (text, images, or both) and long-horizon agent execution via deep entity connections.
+    \item Decoupled memory ingestion from retrieval using distributed compute, queue-driven transformations, and scalable serving to support high-throughput retrieval and low-latency runtime access.
+    \item Built and maintained a unified Python SDK adopted across all AI apps and agents, standardizing agent loops, tool integration, model invocation, retries, and observability by configuration rather than custom glue code.
+    \item Productized a standardized agent runtime where teams only define tools and agent instructions, while the execution loop, tool routing, structured traces, and guardrails are handled centrally by the SDK.
+    \item Extended the SDK to support embedding workflows end-to-end: pluggable embedding backends, chunking and preprocessing with multiple strategies for text, code, and mixed content, batch embedding, and persistence for downstream retrieval.
+    \item Implemented vector storage and retrieval connectors within the SDK, enabling write and query flows across multiple vector backends and object stores; added retrieval strategies including multi-step decomposition and hybrid query patterns for improved recall.
+    \item Developed an IDE extension that pairs a REST client with agentic code search, evaluation, and test generation; added route-level actions to generate API tests, assertions, test data, and security audit guidance directly from application code.
+    \item Architected a cloud marketplace deployment model for a data testing platform using control-plane and data-plane separation, one-click cluster provisioning, metering, access keys, and control-plane enforced API-key validation for secure connectivity.
+    \item Built an agent evaluation stack for validating response quality with and without ground truth, measuring retrieval-to-answer consistency for RAG systems, and scoring tool-based agents on tool success rate, right tool selections, and execution reliability.
+    \item Created an autonomous exploratory testing agent for mobile apps that runs on a distributed execution fabric, observes screens, takes actions, learns repeatable locators, generates objectives and data, and iterates until coverage goals or timeouts are reached.
+    \item Mentored and unblocked junior engineers across delivery, deployment, monitoring, and documentation for an agentic browser testing workflow (extension plus backend) that converts scenarios into repeatable regression suites, and a large-scale data testing service spanning 18+ serverless functions, 8+ container services, 3+ training jobs, queues, retries, and pub/sub patterns; integrated memory retrieval to improve agent coverage and gap detection.
+    \item Partnered with client-facing teams to produce responsible AI, safety, and compliance documentation supporting enterprise onboarding and trust.
+    \item Led demo readiness for analyst and client discussions by producing demo content, videos, and synchronized multi-agent walkthroughs; played a key role in Forrester Wave demo preparation where Qyrus was mentioned in the Leaders category.
+    \item Owned sprint scope planning with PMs and stakeholders, ran sprint planning and retros, maintained disciplined worklogs, and supported external demos (events, analyst conversations, and prospect and client discussions) with demo narratives and recorded walkthroughs.
+\end{itemize}
+\subsection*{Senior Data Science Engineer}
+\textbf{Qyrus} \hfill November 2021 - July 2024\\
+\begin{itemize}
+    \item Developed transformer models from scratch for text classification and named entity recognition (NER), improving data handling.
+    \item Designed and trained a recommendation system using a decoder-only transformer model, suggesting next steps for building autonomous tests.
+    \item Engineered a multi-modal architecture that combines Transformers and CNNs for generating captions and text from images.
+    \item Built and trained language models for answering questions and extracting information, using the PyTorch and Transformers library.
+    \item Fine-tuned object detection models such as DETR, Detectron2, and YOLO, improving element detection in software testing.
+    \item Optimized model performance on minimal hardware using effective quantization techniques, reducing inference times without losing quality.
+    \item Fine-tuned a range of large language models (LLMs) for customized tasks in vision and text, including models like Mistral and Llama.
+    \item Led the development of a Generative AI-powered Software Testing Kit (STK) and published it as a Python package for traditional testing teams to leverage AI in testing.
+    \item Initiated the development of an autonomous chatbot testing service using a distributed AI framework with Kafka, DynamoDB, and Redis.
+    \item Led a 4-member team for developing a desktop application testing and data comparison service, employing AWS technologies like SQS and Lambda.
+    \item Developed copilot bots for comprehensive testing of software across Web, Mobile, API, and Desktop platforms.
+    \item Designed a cloud-based API Testing Agent using LLMs, introducing robust fallback strategies and setting new standards in the industry.
+    \item Orchestrated the efficient chaining of multiple AI models, boosting the capabilities of a test automation assistant.
+    \item Designed and implemented a distributed data processing pipeline with AWS SQS, AWS Lambda, SQL databases, and SageMaker.
+    \item Wrote shell scripts to automate deployments on Amazon EC2 and managed container deployments on AWS ECS and SageMaker using Docker and AWS ECR.
+    \item Created a self-serve Retrieval-Augmented Generation (RAG) system that learns dynamically from custom data, featuring tools integration (BYOA).
+    \item Developed initial software versions (MVPs) with FastAPI, NextJS, SvelteKit, and Node.js for client demos and strategic meetings.
+    \item Mentored new team members, accelerating their learning and integration into the team.
+    \item Led presentations and discussions with stakeholders and clients, demonstrating AI capabilities and project impacts.
 \end{itemize}
 
-\subsection*{Senior Data Science Engineer}
-\textbf{Qyrus} \hfill Nov 2021 -- Jul 2024\\
-Bengaluru
-\begin{itemize}
-    \item Led development of the Generative AI Software Testing Kit (STK), a Python package that let traditional QA teams use AI in their existing workflows.
-    \item Designed a cloud API-testing agent on LLMs with robust fallback strategies, and copilot bots for web, mobile, API and desktop testing.
-    \item Trained transformer models from scratch for text classification and NER, and a decoder-only recommender that suggests the next step while authoring tests.
-    \item Fine-tuned DETR, Detectron2 and YOLO for UI element detection, and fine-tuned Mistral and Llama for custom vision and text tasks.
-    \item Built a self-serve RAG system with tool integration (bring your own actions) and a distributed chatbot-testing service on Kafka, DynamoDB and Redis.
-    \item Led a four-person team shipping a desktop-app testing and data comparison service on SQS and Lambda.
-\end{itemize}
 
 \subsection*{Machine Learning Consultant}
-\textbf{Quinnox} \hfill Jan 2020 -- Nov 2021\\
-Bengaluru
+\textbf{Quinnox} \hfill January 2020 - November 2021\\
 \begin{itemize}
-    \item Shipped text classification models with scikit-learn, FastText and Gensim, and transformer-based NER.
-    \item Designed a text augmentation process that injects realistic errors to harden models against noisy input.
-    \item Built a unified async backend (FastAPI, Flask, aiohttp) serving predictions from a fleet of models.
+    \item Pioneered the implementation of data pre-processing pipelines using Pandas, enhancing data quality and readiness for analysis.
+    \item Developed and trained a suite of text classification models leveraging Numpy, Scikit-learn, FastText, and Gensim to automate content categorization.
+    \item Led the extraction and recognition of named entities by training transformer models, increasing accuracy in data interpretation.
+    \item Engineered a text augmentation process to introduce errors into data, simulating real-world inaccuracies for improved model robustness.
+    \item Created a conversational bot that streamlined the automation testing process, contributing to more efficient quality assurance practices.
+    \item Architected a unified backend system capable of managing asynchronous predictions from diverse machine learning models using FastAPI, Flask, and aiohttp.
 \end{itemize}
 
 \subsection*{Data Science Intern}
-\textbf{KrishiHub} \hfill Sep 2019 -- Jan 2020
+\textbf{KrishiHub} \hfill September 2019 - January 2020\\
 \begin{itemize}
-    \item Wrote OpenCV algorithms to isolate diseased regions of crops and a meta-learning classifier for disease type, then integrated both into a deployed pipeline.
+    \item Engineered OpenCV algorithms to accurately identify diseased crop regions, contributing to the advancement of agricultural technology.
+    \item Implemented meta-learning techniques to construct a sophisticated model for crop disease classification, enhancing predictive accuracy.
+    \item Seamlessly integrated the OpenCV-based disease detection algorithm with the classifier system, culminating in a production-level deployment.
 \end{itemize}
 
 \subsection*{Machine Learning Intern}
-\textbf{IIIT Allahabad} \hfill May 2019 -- Jul 2019
+\textbf{IIIT Allahabad} \hfill May 2019 - July 2019\\
 \begin{itemize}
-    \item Network traffic analysis across switches to optimise cluster efficiency, cutting cost and energy use.
+    \item Conducted comprehensive data analysis on network traffic through various switches to optimize cluster efficiency, resulting in significant cost reduction and energy savings.
 \end{itemize}
 
 % Projects
-\section*{Selected Projects}
-\subsubsection*{\href{https://github.com/vatsalsaglani/Cider}{Cider}}
+\section*{Projects}
+\noindent GitHub: \href{https://github.com/vatsalsaglani}{Profile}\\[0.5em]
+\subsubsection*{\href{https://github.com/vatsalsaglani/tinker}{Tinker (BYOK Coding Agent)}}
 \begin{itemize}
-    \item A calmer corner of your Mac. A menu-bar companion that lives in the notch: watch your coding agents work, track tasks and linked plans, keep local Markdown notes, control music and see account usage without leaving what you are doing.
+    \item Building a coding assistant for VS Code with a Bring Your Own Key (BYOK) approach and a pluggable provider connector layer.
+    \item Implemented secure credential handling using editor secret storage, keeping keys local and only used for configured requests.
+    \item Shipped a chat-first UX with markdown and code rendering, plus context controls to attach files and relevant symbols into prompts.
+    \item Added tool integrations for code search and workspace operations to support assisted coding and refactoring workflows.
+    \item Built developer-facing visibility for usage and debugging, including conversation management and workflow affordances for reviewing and applying changes.
 \end{itemize}
-
-\subsubsection*{\href{https://github.com/vatsalsaglani/Capsule}{Capsule}}
-\begin{itemize}
-    \item Compose-style orchestration for Apple's container runtime. A native container manager for Apple silicon: a SwiftUI app plus a capsule CLI sharing one engine that translates Compose files into native volumes, networks and port publishing. Honest about the subset it supports.
-\end{itemize}
-
-\subsubsection*{\href{https://github.com/vatsalsaglani/tinker}{Tinker}}
-\begin{itemize}
-    \item An open-source, bring-your-own-key AI coding assistant for VS Code. Chat with your codebase using OpenAI, Anthropic, Gemini, Azure or Bedrock. File and symbol references, image attachments, tool use for files, git and diagnostics, and MCP server support. Works in Cursor and other forks too.
-\end{itemize}
-
 \subsubsection*{\href{https://github.com/vatsalsaglani/GraphRAG4Rec}{GraphRAG4Rec}}
 \begin{itemize}
-    \item GraphRAG, from scratch, for movie recommendations. A naive implementation of Microsoft's GraphRAG over the IMDB Top 1000: build the entity graph, summarise communities, then answer recommendation queries with graph-aware retrieval.
+    \item A Graph-based RAG bot to deliver content-based movie recommendations. A naive implementation of Microsoft's GraphRAG.
 \end{itemize}
-
-\subsubsection*{\href{https://github.com/vatsalsaglani/llama-cpp-search}{llama-cpp-search}}
+\subsubsection*{\href{https://github.com/vatsalsaglani/claudetools}{Claudetools}}
 \begin{itemize}
-    \item A GenAI search engine that runs on a laptop. Web search, scraping and answer synthesis powered by llama-cpp-python and Phi-3, showing how far a small language model goes with the right chain.
+    \item Developed a Python package for doing function calling using the Claude 3 family of models. Can be used as a drop-in replacement for OpenAI function calling or tools.
 \end{itemize}
-
-\subsubsection*{\href{https://github.com/vatsalsaglani/claudetools}{claudetools}}
+\subsubsection*{\href{https://github.com/vatsalsaglani/FuncReAct}{FuncReAct}}
 \begin{itemize}
-    \item Function calling for the Claude 3 family, before it was built in. A Python library that gave Claude 3 models OpenAI-style tools and function calling, including vision inputs. Published on PyPI and used as a drop-in replacement in existing agent code.
+    \item Constructed a flexible RAG (Retrieval-Augmented Generation) framework leveraging OpenAI's API and Pinecone's vector database to enable dynamic action integration within applications.
 \end{itemize}
-
-\subsubsection*{\href{https://github.com/vatsalsaglani/GenAINewsAgent}{GenAINewsAgent}}
+\subsubsection*{\href{https://github.com/vatsalsaglani/rumage-ai-search}{LLM-powered Search}}
 \begin{itemize}
-    \item A news summary agent on Llama 3 over Groq. Fetches, de-duplicates and summarises the day's news with a fast open model, built in an afternoon and forked a lot since.
+    \item A LLM-powered search engine developed using Playwright and both open and closed-source LLMs demonstrating efficient and effective LLM chaining.
 \end{itemize}
-
-\subsubsection*{\href{https://github.com/vatsalsaglani/bert4rec}{bert4rec}}
+\subsubsection*{\href{https://github.com/vatsalsaglani/bert4rec}{Bert4Rec}}
 \begin{itemize}
-    \item A decoder-only transformer recommender. Sequential movie recommendation with self-attention, trained in PyTorch and tuned with Optuna. The idea later shipped inside Qyrus as a next-step recommender for test authoring.
+    \item Developed a recommendation system using a decoder-only self-attention transformer model to predict movie preferences, utilizing PyTorch and Optuna for training and optimization.
 \end{itemize}
-
-\subsubsection*{\href{https://github.com/vatsalsaglani/local-diagramgpt}{local-diagramgpt}}
+\subsubsection*{\href{https://github.com/vatsalsaglani/cocoImageCaptioningTransformer}{Image Captioning Transformer}}
 \begin{itemize}
-    \item System architecture diagrams from a local LLM. Describe a system in plain English and get a rendered architecture diagram, generated with llama.cpp and no API key.
+    \item Implemented a state-of-the-art image captioning algorithm by adapting DE:TR principles, employing a ResNet50 model for feature extraction and transformer architecture for text encoding and prediction.
 \end{itemize}
 
 % Skills
 \section*{Skills}
-\begin{description}[leftmargin=0pt,style=unboxed,itemsep=2pt]
-    \item[Agents \& LLMs.] Multi-agent orchestration, MCP, Function calling, RAG, Fine-tuning (Mistral, Llama, Qwen), Evaluation \& LLM-as-judge, Prompt \& schema design
-    \item[Deep learning.] PyTorch, Transformers, JAX, Computer vision (DETR, YOLO, Detectron2), NLP \& NER, Recommendation systems, Quantization
-    \item[Languages.] Python, Swift, TypeScript / JavaScript, SQL, Shell, Rust (learning)
-    \item[Platforms \& infra.] AWS (Bedrock, SageMaker, Lambda, SQS, ECS), Azure OpenAI, Docker, Kafka, Redis, DynamoDB, Playwright
-    \item[Product \& web.] FastAPI, Next.js, SvelteKit, SwiftUI, Electron, Tailwind CSS
-\end{description}
+Python,
+PyTorch, JAX, Large Language Models (LLMs),
+LLMs and Agents,
+Computer Vision,
+NLP,
+Recommendation Systems,
+Training and Fine-tuning LLMs,
+NumPy,
+FastAPI,
+Flask,
+SQL and NoSQL DBs,
+AWS (EC2, Lambda, Sagemaker, Bedrock, ECS, EKS),
+Azure AI,
+Javascript,
+SvelteKit,
+ReactJS,
+NextJS
 
-% Education
-\section*{Education}
-\subsection*{B.Tech, Computer Science and Engineering}
-\textbf{Vellore Institute of Technology} \hfill Jun 2015 -- May 2019
-\begin{itemize}
-    \item CGPA 8.48/10. Awarded VIT Best Project 2019 for the capstone. Published four papers as an undergraduate.
-\end{itemize}
 
 % Publications
 \section*{Publications}
+\noindent Google Scholar: \href{https://scholar.google.com/citations?user=3RB_jh0AAAAJ&hl=en}{Profile}\\[0.5em]
 \subsubsection*{Malware Classification using Machine Learning Algorithms}
 \begin{itemize}
-    \item 2nd International Conference on Trends in Electronics and Informatics (ICOEI), 2018. Citations: 22.
+    \item Presented at the 2nd International Conference on Trends in Electronics and Informatics (ICOEI).
+    \begin{itemize}
+        \item Citations: 32
+    \end{itemize}
 \end{itemize}
 
 \subsubsection*{Big Data Technology in Healthcare: A Survey}
 \begin{itemize}
-    \item 10th IFIP International Conference on New Technologies, Mobility and Security (NTMS), 2019. Citations: 4.
+    \item Delivered at the 10th IFIP International Conference on New Technologies, Mobility, and Security (NTMS).
+    \begin{itemize}
+        \item Citations: 4
+    \end{itemize}
 \end{itemize}
 
 \subsubsection*{Classifying and Predicting DoS and DDoS Attacks on Cloud Services}
 \begin{itemize}
-    \item 2nd International Conference on Trends in Electronics and Informatics (ICOEI), 2018. Citations: 4.
+    \item Discussed at the 2nd International Conference on Trends in Electronics and Informatics (ICOEI).
+    \begin{itemize}
+        \item Citations: 5
+    \end{itemize}
 \end{itemize}
 
 \subsubsection*{IoT based Smart Safe System}
 \begin{itemize}
-    \item International Conference on Computational Techniques, Electronics and Mechanical Systems (CTEMS), 2018. Citations: 2.
+    \item Introduced at the International Conference on Computational Techniques, Electronics and Mechanical Systems (CTEMS).
+    \begin{itemize}
+        \item Citations: 2
+    \end{itemize}
 \end{itemize}
 
 \end{document}
+

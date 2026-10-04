@@ -3,7 +3,7 @@ export const publications = [
     title: "Malware Classification using Machine Learning Algorithms",
     venue: "2nd International Conference on Trends in Electronics and Informatics (ICOEI)",
     year: 2018,
-    citations: 22,
+    citations: 32,
   },
   {
     title: "Big Data Technology in Healthcare: A Survey",
@@ -15,7 +15,7 @@ export const publications = [
     title: "Classifying and Predicting DoS and DDoS Attacks on Cloud Services",
     venue: "2nd International Conference on Trends in Electronics and Informatics (ICOEI)",
     year: 2018,
-    citations: 4,
+    citations: 5,
   },
   {
     title: "IoT based Smart Safe System",

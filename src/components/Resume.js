@@ -6,17 +6,12 @@ import { skills } from "@/data/skills";
 import { publications } from "@/data/publications";
 import { getProjects } from "@/lib/data";
 
-const PINNED_SLUGS = ["cider", "capsule"];
-const TOP_STARRED = 6;
+// Mirrors the project list in public/resume.tex.
+const RESUME_SLUGS = ["tinker", "graphrag4rec", "claudetools", "funcreact", "bert4rec", "image-captioning-transformer"];
 
-// The six most-starred repos, plus the flagship macOS apps.
 function selectProjects() {
   const all = getProjects();
-  const starred = all
-    .filter((p) => p.stars != null && !PINNED_SLUGS.includes(p.slug))
-    .sort((a, b) => b.stars - a.stars)
-    .slice(0, TOP_STARRED);
-  return [...PINNED_SLUGS.map((slug) => all.find((p) => p.slug === slug)).filter(Boolean), ...starred];
+  return RESUME_SLUGS.map((slug) => all.find((p) => p.slug === slug)).filter(Boolean);
 }
 
 const bare = (url) => url.replace(/^https?:\/\//, "").replace(/\/+$/, "");
@@ -94,7 +89,7 @@ export default function Resume() {
           <header className="mb-8">
             <h1 className="font-serif text-5xl leading-none tracking-tight">{profile.name}</h1>
             <p className="mt-3 text-base">
-              {profile.role}, {profile.company} · {profile.location}
+              {profile.role}, {profile.company} · {profile.headline} · {profile.location}
             </p>
             <p className="mt-3 flex flex-wrap gap-x-4 gap-y-1 font-mono text-xs text-muted">
               {contactLinks().map((link) => (

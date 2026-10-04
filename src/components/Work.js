@@ -77,7 +77,7 @@ export default function Work() {
               Things I have <em>shipped</em>
             </>
           }
-          lede="Agents, native macOS apps and developer tools. Most of it is open source, all of it started as something I wanted to exist."
+          lede="Agent systems, LLM tooling and a few experiments in letting coding agents build whole apps. Most of it is open source, all of it started as something I wanted to exist."
         />
 
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-12">
