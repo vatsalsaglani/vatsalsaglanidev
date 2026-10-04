@@ -1,12 +1,12 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { profile } from "@/data/profile";
 import { publications } from "@/data/publications";
 import { skills } from "@/data/skills";
 import { fadeUp, stagger, viewportOnce } from "@/lib/motion";
 import SectionHeading from "./SectionHeading";
+import AgentTrace from "./AgentTrace";
 import { ArrowUpRight } from "./SectionIcons";
 
 const reveal = {
@@ -16,26 +16,13 @@ const reveal = {
   viewport: viewportOnce,
 };
 
-function Photo() {
-  const ref = useRef(null);
-  const reduce = useReducedMotion();
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [-20, 20]);
-
+function Trace() {
   return (
     <motion.figure variants={fadeUp} initial="hidden" whileInView="show" viewport={viewportOnce} className="mx-auto max-w-xs sm:max-w-sm lg:max-w-none">
-      <div ref={ref} className="relative aspect-[4/5] overflow-hidden rounded-xl2 border border-line/10 bg-surface">
-        <motion.img
-          src={profile.photo}
-          alt={`Portrait of ${profile.name}`}
-          loading="lazy"
-          style={{ y, filter: "grayscale(10%) contrast(1.05)" }}
-          className="h-full w-full scale-[1.12] object-cover"
-        />
-      </div>
+      <AgentTrace />
       <figcaption className="eyebrow mt-4 flex items-center justify-between">
-        <span>{profile.location}</span>
-        <span className="text-accent">{profile.name}</span>
+        <span>A simulated run, looping</span>
+        <span className="text-accent">{profile.location}</span>
       </figcaption>
     </motion.figure>
   );
@@ -127,7 +114,7 @@ export default function About() {
 
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:sticky lg:top-28 lg:col-span-5 lg:self-start">
-            <Photo />
+            <Trace />
           </div>
 
           <div className="lg:col-span-7">
