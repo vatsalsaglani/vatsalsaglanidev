@@ -52,6 +52,6 @@ The resume at `/resume/` is built from these files. `public/resume.tex` is the L
 
 ## Deployment
 
-**Cloudflare Pages** (primary): build command `npm run build`, output directory `out`. The site is a static export, so no adapter or server runtime is needed.
+**Cloudflare Pages** (primary): build command `npm run build`, output directory `out` (also declared in `wrangler.toml`, which Pages honours). Node 22 via `.node-version`; if a `NODE_VERSION` environment variable is set in the Pages project it overrides this, so set it to `22` or remove it. The site is a static export, so do not use the `@cloudflare/next-on-pages` adapter or the "Next.js" framework preset; pick "Next.js (Static HTML Export)" or "None".
 
 **GitHub Pages mirror**: the `vatsalsaglani.github.io` repo serves the static build from its root with a `.nojekyll` file. Clone it next to this repo and run `npm run publish:gh` (or pass another path: `bash scripts/publish-github-pages.sh /path/to/repo`). The script builds, replaces the target contents (keeping `.git`, `README.md` and `CNAME`), and prints the git commands to commit and push.

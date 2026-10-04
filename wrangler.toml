@@ -1,0 +1,6 @@
+# Cloudflare Pages reads this file. It tells Pages where the static export lands,
+# so the dashboard's "build output directory" setting cannot drift from the code.
+# The build command in the dashboard must be:  npm run build
+name = "vatsalsaglani"
+compatibility_date = "2026-10-01"
+pages_build_output_dir = "out"
