@@ -20,7 +20,7 @@ export default function ProjectCard({ project, size = "md", className }) {
   const rotateY = useSpring(useTransform(px, [-0.5, 0.5], [-MAX_TILT, MAX_TILT]), SPRING);
   const rotateX = useSpring(useTransform(py, [-0.5, 0.5], [MAX_TILT, -MAX_TILT]), SPRING);
 
-  const { name, tagline, description, category, year, language, stack, stars, status, repo } = project;
+  const { name, tagline, description, category, year, language, stack, stars, status, repo, weekend } = project;
   const isNew = !stars && year === 2026;
 
   const onPointerMove = (e) => {
@@ -97,7 +97,8 @@ export default function ProjectCard({ project, size = "md", className }) {
                 {formatStars(stars)}
               </span>
             )}
-            {isNew && <span className="chip border-accent/40 text-accent">New</span>}
+            {weekend && <span className="chip border-accent/40 text-accent">Weekend build</span>}
+            {isNew && !weekend && <span className="chip border-accent/40 text-accent">New</span>}
             <span className="chip">{status}</span>
           </div>
           <span className="inline-flex items-center gap-1 font-mono text-xs uppercase tracking-wider text-muted transition-colors group-hover:text-fg">

@@ -13,10 +13,13 @@ const projects = getProjects();
 import SectionHeading from "./SectionHeading";
 import { ArrowUpRight } from "./SectionIcons";
 
-const featured = projects.filter((p) => p.featured);
+const FEATURED_ORDER = ["tinker", "cider", "graphrag4rec", "claudetools", "capsule", "rafu", "llama-cpp-search", "swarmloka"];
+const rank = (p) => { const i = FEATURED_ORDER.indexOf(p.slug); return i === -1 ? 99 : i; };
+const featured = projects.filter((p) => p.featured).sort((x, y) => rank(x) - rank(y));
 
 // 12-column editorial rhythm on lg: 7/5 then three equal cards.
-const SPANS = ["md:col-span-2 lg:col-span-7", "lg:col-span-5", "lg:col-span-4", "lg:col-span-4", "lg:col-span-4"];
+// 8 featured cards: 7/5, then two rows of 4/4/4. Extra cards fall back to a third of the row.
+const SPANS = ["md:col-span-2 lg:col-span-7", "lg:col-span-5", "lg:col-span-4", "lg:col-span-4", "lg:col-span-4", "lg:col-span-4", "lg:col-span-4", "lg:col-span-4"];
 
 const ROW_GRID =
   "grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-4 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)_7.5rem_3rem_3rem_1rem] md:gap-x-6";
@@ -77,12 +80,12 @@ export default function Work() {
               Things I have <em>shipped</em>
             </>
           }
-          lede="Side projects and experiments: LLM tooling, local agent swarms, and a few attempts at letting coding agents build whole apps. Supporting work, not the main story."
+          lede="Side projects, mostly things I wanted for myself and could not find. The weekend builds are exactly that: some took half a day, some took several weekends, all of them were built alongside coding agents."
         />
 
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-12">
           {featured.map((p, i) => (
-            <ProjectCard key={p.slug} project={p} size={i === 0 ? "lg" : "md"} className={SPANS[i]} />
+            <ProjectCard key={p.slug} project={p} size={i === 0 ? "lg" : "md"} className={SPANS[i] ?? "lg:col-span-4"} />
           ))}
         </div>
 
