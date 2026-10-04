@@ -76,7 +76,7 @@ export default function Writing() {
     <section id="writing" className="scroll-mt-24 border-t border-line/10 py-24 md:py-32">
       <div className="wrap">
         <SectionHeading
-          index="03"
+          index="04"
           eyebrow="Writing"
           title={
             <>

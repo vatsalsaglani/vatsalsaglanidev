@@ -70,14 +70,14 @@ export default function Work() {
     <section id="work" className="scroll-mt-24 border-t border-line/10 py-24 md:py-32">
       <div className="wrap">
         <SectionHeading
-          index="01"
-          eyebrow="Selected work"
+          index="02"
+          eyebrow="Open source"
           title={
             <>
               Things I have <em>shipped</em>
             </>
           }
-          lede="Agent systems, LLM tooling and a few experiments in letting coding agents build whole apps. Most of it is open source, all of it started as something I wanted to exist."
+          lede="Side projects and experiments: LLM tooling, local agent swarms, and a few attempts at letting coding agents build whole apps. Supporting work, not the main story."
         />
 
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-12">

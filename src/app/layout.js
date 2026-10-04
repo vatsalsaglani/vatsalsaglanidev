@@ -15,7 +15,7 @@ const serif = Instrument_Serif({
 
 const title = `${profile.name} — ${profile.role} at ${profile.company}`;
 const description =
-  "Vatsal Saglani builds agents and the tools around them: autonomous testing at Qyrus, native macOS apps in Swift, and open-source LLM tooling.";
+  "Vatsal Saglani builds AI agents that test software, and the systems that make them reliable: agent SDKs, distributed runtimes, memory and evaluation at Qyrus, plus open-source LLM tooling.";
 
 export const metadata = {
   metadataBase: new URL(profile.siteUrl),

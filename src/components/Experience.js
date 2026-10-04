@@ -102,6 +102,7 @@ function Entry({ entry }) {
             <span className="text-fg">{entry.org}</span>
           )}
           {entry.location && <span> · {entry.location}</span>}
+          {entry.employerNote && <span className="mt-1 block font-mono text-[11px] uppercase tracking-wider text-muted/80">{entry.employerNote}</span>}
         </p>
         <p className="mt-4 max-w-2xl text-base leading-relaxed md:text-lg">{entry.summary}</p>
         {entry.highlights.length > 0 && <Highlights items={entry.highlights} />}
@@ -128,7 +129,7 @@ export default function Experience() {
     <section id="experience" className="scroll-mt-24 border-t border-line/10 py-24 md:py-32">
       <div className="wrap">
         <SectionHeading
-          index="02"
+          index="03"
           eyebrow="Experience"
           title={
             <>

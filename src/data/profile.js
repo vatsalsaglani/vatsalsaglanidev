@@ -3,7 +3,7 @@ export const profile = {
   name: "Vatsal Saglani",
   firstName: "Vatsal",
   role: "Data Science Lead, GenAI",
-  headline: "Agentic systems and AI platforms",
+  headline: "Agents that test software, and the systems that make them reliable",
   company: "Qyrus",
   companyUrl: "https://www.qyrus.com",
   location: "Bengaluru, India",
@@ -14,21 +14,21 @@ export const profile = {
   available: true,
   availabilityNote: "Open to interesting conversations, talks and collaborations",
   // Short, punchy line for the hero.
-  tagline: "I build agentic systems, and the platforms they run on.",
+  tagline: "I build AI agents that test software, and the systems that make them reliable.",
   // Rotating verbs used in the hero headline.
   rotatingRoles: [
-    "autonomous testing agents",
-    "agent runtimes and SDKs",
+    "AI agents that test software",
+    "the harnesses that make them reliable",
     "memory and evaluation for agents",
-    "LLM tooling people actually use",
+    "SDKs other teams build on",
   ],
   // One-paragraph bio used in the hero / about block.
   bio:
-    "I lead the GenAI team at Qyrus, where we are making software testing genuinely autonomous across web, mobile, desktop and APIs: agent runtimes, a hybrid memory system, telemetry and evaluation for every call an agent makes. Before that I trained transformers from scratch, fine-tuned vision models and shipped recommendation systems. I write about agent architectures and MCP, and keep a steady stream of open-source experiments going.",
+    "I lead AI engineering at Qyrus, where agents test software across web, mobile, desktop and APIs. My work is the systems around those agents: the execution harness and shared SDK, distributed runtimes with durable evidence, memory, and evaluation. I still work directly on models and code. I write about agent architectures and MCP, and keep a steady stream of open-source experiments going.",
   // Longer narrative for an "about" section.
   about: [
     "I have spent the last seven years on the applied side of machine learning: first classical NLP and computer vision, then transformers, and since 2023 almost entirely large language models and the agent systems built on top of them.",
-    "At Qyrus I own the GenAI roadmap. That means a standardized agent runtime where teams only define tools and instructions, a hybrid memory system that combines graph relationships with semantic retrieval, a telemetry platform that traces every inference call, and an evaluation stack for scoring agents with and without ground truth.",
+    "At Qyrus I set the technical direction for AI. The through-line is reliability: a shared SDK so every agent runs the same loop with the same telemetry, a runtime that streams a session live and keeps the evidence afterwards, memory for long tasks, and evaluation that looks at the whole trajectory rather than just the final answer. I mentor the engineers building on it and plan delivery with product.",
     "Outside work I spend a lot of time on agentic development itself: how far can a coding agent take a real product? Tinker, a bring-your-own-key coding assistant for VS Code, is the main one. The native macOS apps in my GitHub are experiments from the same question, built mostly to see what agents can ship.",
   ],
   stats: [
@@ -39,7 +39,7 @@ export const profile = {
   ],
   links: {
     github: { label: "GitHub", handle: "vatsalsaglani", url: "https://github.com/vatsalsaglani" },
-    linkedin: { label: "LinkedIn", handle: "vatsalsaglani", url: "https://linkedin.com/in/vatsalsaglani" },
+    linkedin: { label: "LinkedIn", handle: "vatsalsaglani", url: "https://www.linkedin.com/in/vatsalsaglani/" },
     medium: { label: "Medium", handle: "thevatsalsaglani", url: "https://thevatsalsaglani.medium.com" },
     x: { label: "X", handle: "saglanivatsal", url: "https://x.com/saglanivatsal" },
     scholar: { label: "Google Scholar", handle: "Vatsal Saglani", url: "https://scholar.google.com/citations?user=3RB_jh0AAAAJ&hl=en" },
@@ -53,7 +53,8 @@ export const profile = {
 };
 
 export const nav = [
-  { id: "work", label: "Work" },
+  { id: "systems", label: "Systems" },
+  { id: "work", label: "Open source" },
   { id: "experience", label: "Experience" },
   { id: "writing", label: "Writing" },
   { id: "about", label: "About" },
@@ -61,7 +62,8 @@ export const nav = [
 ];
 
 export const now = [
-  "Leading GenAI at Qyrus",
+  "Leading AI engineering at Qyrus",
+  "Agents testing software on real devices",
   "Building Tinker, a BYOK coding agent for VS Code",
   "Writing about MCP and agent architectures",
   "Shipping products with coding agents",

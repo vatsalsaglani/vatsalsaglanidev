@@ -1,5 +1,6 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
+import Systems from "@/components/Systems";
 import Work from "@/components/Work";
 import Experience from "@/components/Experience";
 import Writing from "@/components/Writing";
@@ -14,6 +15,7 @@ export default function Page() {
       <Nav />
       <main>
         <Hero />
+        <Systems />
         <Work />
         <Experience />
         <Writing />

@@ -116,7 +116,7 @@ export default function About() {
     <section id="about" className="scroll-mt-24 border-t border-line/10 py-24 md:py-32">
       <div className="wrap">
         <SectionHeading
-          index="04"
+          index="05"
           eyebrow="About"
           title={
             <>

@@ -49,7 +49,7 @@ function Entry({ item }) {
         </h3>
         <p className="font-mono text-xs text-muted">{formatRange(item.start, item.end)}</p>
       </div>
-      {item.location && <p className="font-mono text-xs text-muted">{item.location}</p>}
+      {item.location && <p className="font-mono text-xs text-muted">{item.location}{item.employerNote ? ` · ${item.employerNote}` : ""}</p>}
       {item.highlights.length > 0 ? (
         <ul className="mt-2 list-disc space-y-1 pl-5 text-sm leading-relaxed marker:text-muted">
           {item.highlights.map((text) => (

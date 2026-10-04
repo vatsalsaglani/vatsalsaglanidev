@@ -260,7 +260,7 @@ export default function Contact() {
     <section id="contact" className="scroll-mt-24 border-t border-line/10 py-24 md:py-32">
       <div className="wrap">
         <SectionHeading
-          index="05"
+          index="06"
           eyebrow="Contact"
           title={
             <>
