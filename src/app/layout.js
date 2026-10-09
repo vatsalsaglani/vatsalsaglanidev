@@ -2,6 +2,7 @@ import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider, themeInitScript } from "@/components/ThemeProvider";
 import { profile } from "@/data/profile";
+import { siteTitle, siteDescription } from "@/lib/seo";
 
 const sans = Geist({ variable: "--font-sans", subsets: ["latin"], display: "swap" });
 const mono = Geist_Mono({ variable: "--font-mono", subsets: ["latin"], display: "swap" });
@@ -13,9 +14,8 @@ const serif = Instrument_Serif({
   display: "swap",
 });
 
-const title = `${profile.name} — ${profile.role} at ${profile.company}`;
-const description =
-  "Vatsal Saglani builds AI agents that test software, and the systems that make them reliable: agent SDKs, distributed runtimes, memory and evaluation at QyrusAI, plus open-source LLM tooling.";
+const title = siteTitle;
+const description = siteDescription;
 
 export const metadata = {
   metadataBase: new URL(profile.siteUrl),

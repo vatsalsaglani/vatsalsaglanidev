@@ -25,7 +25,8 @@ Before touching UI, read the design skill: `.agents/skills/portfolio-design-syst
 | `src/lib/motion.js` | Shared framer-motion presets. Use them. |
 | `src/lib/linkify.js` | `linkCompany(text)` wraps "QyrusAI" in prose with its link. Use it for any new prose that mentions the company. |
 | `src/app/resume/` | Print-ready resume built from the same data. `public/resume.tex` is the owner's LaTeX, edited by hand only. |
-| `scripts/` | `refresh-data.mjs` (GitHub + Medium snapshots), `publish-github-pages.sh` (sync `out/` to the mirror repo). |
+| `scripts/` | `refresh-data.mjs` (GitHub + Medium snapshots), `publish-github-pages.sh` (sync `out/` to the mirror repo), `seo-check.mjs` (static checks over `out/`). |
+| `src/lib/seo.js` | Shared title/description and JSON-LD builders. Structured data is generated from the data files; never hand-type facts into it. See `docs/SEO.md`. |
 
 ## Commands
 
@@ -39,7 +40,7 @@ npm run publish:gh     # build + sync into ../vatsalsaglani.github.io (then comm
 
 ## Definition of done for any UI change
 
-1. `npx next lint` and `npm run build` pass.
+1. `npx next lint`, `npm run build` and `npm run check:seo` pass (the last validates titles, canonicals, JSON-LD, sitemap and internal links in `out/`).
 2. Checked in both themes (`data-theme="dark"` and `"light"` on `<html>`) at 1440 and 390 wide. No horizontal scroll at 390.
 3. Scroll reveals, hover states and continuous animations respect `prefers-reduced-motion`.
 4. New prose went into `src/data`, not JSX. Icons are inline SVG from `Icons.js` / `SectionIcons.js`, never emoji or icon fonts.

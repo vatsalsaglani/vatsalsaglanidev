@@ -130,18 +130,22 @@ export default function Hero() {
 
         <div className="my-auto py-12 md:py-16">
           <h1 className="break-words font-serif text-display-xl">
-            <span className="block">
-              <MaskedWord delay={0.2} reduce={reduce}>{first}</MaskedWord>{" "}
-              <MaskedWord delay={0.32} reduce={reduce}>{last}</MaskedWord>
+            {/* Screen readers and crawlers get one plain sentence; the animated copy below is presentation. */}
+            <span className="sr-only">{`${profile.name} builds ${profile.rotatingRoles[0]}.`}</span>
+            <span aria-hidden="true">
+              <span className="block">
+                <MaskedWord delay={0.2} reduce={reduce}>{first}</MaskedWord>{" "}
+                <MaskedWord delay={0.32} reduce={reduce}>{last}</MaskedWord>
+              </span>
+              <motion.span
+                className="block"
+                initial={reduce ? false : { opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.9, ease: EASE, delay: 0.5 }}
+              >
+                <span className="text-muted">builds</span> <RotatingWord roles={profile.rotatingRoles} reduce={reduce} />
+              </motion.span>
             </span>
-            <motion.span
-              className="block"
-              initial={reduce ? false : { opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, ease: EASE, delay: 0.5 }}
-            >
-              <span className="text-muted">builds</span> <RotatingWord roles={profile.rotatingRoles} reduce={reduce} />
-            </motion.span>
           </h1>
 
           <motion.p {...rise(0.75)} className="mt-8 max-w-2xl text-base text-muted md:mt-10 md:text-lg">

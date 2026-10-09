@@ -8,10 +8,13 @@ import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import CommandPalette from "@/components/CommandPalette";
+import JsonLd from "@/components/JsonLd";
+import { homeJsonLd } from "@/lib/seo";
 
 export default function Page() {
   return (
     <>
+      <JsonLd data={homeJsonLd()} />
       <Nav />
       <main>
         <Hero />

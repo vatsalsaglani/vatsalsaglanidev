@@ -1,5 +1,15 @@
 import Link from "next/link";
 
+// A 404 should not advertise itself as the homepage: own title, noindex, no canonical.
+export const metadata = {
+  title: "Page not found — Vatsal Saglani",
+  description: "This page does not exist on vatsalsaglani.pages.dev.",
+  robots: { index: false, follow: false },
+  alternates: {},
+  openGraph: null,
+  twitter: null,
+};
+
 export default function NotFound() {
   return (
     <main className="wrap flex min-h-dvh flex-col items-start justify-center py-24">
