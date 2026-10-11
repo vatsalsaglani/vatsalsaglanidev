@@ -1,0 +1,39 @@
+# Vatsal Saglani
+
+> Vatsal Saglani is a Data Science Lead, GenAI at QyrusAI, based in Bengaluru, India. He builds AI agents that test software, and the systems that make them reliable: a shared agent SDK and execution harness, distributed runtimes with durable evidence, agent memory and evaluation. He also publishes open-source LLM tooling and writes about agent architectures and MCP.
+
+This file is a short guide to his portfolio for language models and agents. The canonical site is https://vatsalsaglani.pages.dev/ and https://vatsalsaglani.github.io/ is a mirror of the same build. The portfolio pages are HTML; there are no separate Markdown versions.
+
+## Portfolio
+
+- [Portfolio home](https://vatsalsaglani.pages.dev/): Professional systems work at QyrusAI, open-source projects, experience, writing, about and contact
+- [Resume](https://vatsalsaglani.pages.dev/resume/): Printable resume with experience, selected projects, skills, education and publications
+- [Resume source (LaTeX)](https://vatsalsaglani.pages.dev/resume.tex): The owner's LaTeX resume as a downloadable file
+
+## Selected open-source projects
+
+- [Tinker](https://github.com/vatsalsaglani/tinker): An open-source, bring-your-own-key AI coding assistant for VS Code
+- [GraphRAG4Rec](https://github.com/vatsalsaglani/GraphRAG4Rec): GraphRAG, from scratch, for movie recommendations
+- [claudetools](https://github.com/vatsalsaglani/claudetools): Function calling for the Claude 3 family, before it was built in
+- [llama-cpp-search](https://github.com/vatsalsaglani/llama-cpp-search): A GenAI search engine that runs on a laptop
+- [swarmloka](https://github.com/vatsalsaglani/swarmloka): Local agent swarms with Qwen 2.5
+- [Cider](https://github.com/vatsalsaglani/Cider): A macOS notch companion, built as an experiment in agentic development
+- [Capsule](https://github.com/vatsalsaglani/Capsule): Compose-style orchestration for Apple's container runtime, built as an experiment in agentic development
+- [rafu](https://github.com/vatsalsaglani/rafu): A native macOS repo editor for the age of coding agents, built as an experiment in agentic development
+
+## Writing
+
+- [Schema-First Function Calling](https://ai.plainenglish.io/schema-first-function-calling-0c42e57f3264): Designing the schema before the prompt for more reliable structured tool calls
+- [MCP vs A2A: Building Bridges Between AI Agents](https://medium.com/data-science-collective/mcp-vs-a2a-building-bridges-between-ai-agents-f6b64be97a35): Where the Model Context Protocol and Agent2Agent overlap and differ
+- [AI Engineer's Handbook to MCP Architecture](https://medium.com/data-science-collective/ai-engineers-handbook-to-mcp-architecture-905b47965cb1): Hosts, clients, servers, transports and the lifecycle of a tool call
+- [I Built an OpenAI-Style Swarm That Runs Entirely on My Laptop](https://generativeai.pub/i-built-an-openai-style-swarm-that-runs-entirely-on-my-laptop-heres-how-ac606ba739f3): Hand-off based multi-agent orchestration on local models
+- [How I Developed a NotebookLM Clone](https://pub.towardsai.net/how-i-developed-a-notebooklm-clone-2d901d1c72a6): From PDF to a two-host podcast
+
+## Profiles
+
+- [GitHub](https://github.com/vatsalsaglani): Source code for his open-source projects
+- [LinkedIn](https://www.linkedin.com/in/vatsalsaglani/): Professional profile
+- [Medium](https://thevatsalsaglani.medium.com): All published articles
+- [Google Scholar](https://scholar.google.com/citations?user=3RB_jh0AAAAJ&hl=en): Publications and citations
+- [X](https://x.com/saglanivatsal): Social profile
+- [QyrusAI](https://qyrus.ai): His employer

@@ -96,6 +96,13 @@ for (const loc of locs) {
   if (!fs.existsSync(path.join(OUT, rel, "index.html"))) errors.push(`sitemap: ${loc} has no exported page`);
 }
 for (const p of PAGES.filter((p) => p.index)) if (!locs.includes(p.url)) errors.push(`sitemap: missing ${p.url}`);
+// llms.txt (llmstxt.org convention): must exist, start with an H1, and use absolute links only.
+if (!fs.existsSync(path.join(OUT, "llms.txt"))) errors.push("llms.txt: missing from export");
+else {
+  const llms = read("llms.txt");
+  if (!/^# \S/.test(llms)) errors.push("llms.txt: first line must be an H1");
+  for (const m of llms.matchAll(/\]\(([^)]+)\)/g)) if (!/^https:\/\//.test(m[1])) errors.push(`llms.txt: non-absolute link ${m[1]}`);
+}
 const robotsTxt = read("robots.txt");
 if (!/Sitemap:\s*\S+/.test(robotsTxt)) errors.push("robots.txt: no Sitemap line");
 if (/Disallow:\s*\/\s*$/m.test(robotsTxt)) errors.push("robots.txt: disallows everything");

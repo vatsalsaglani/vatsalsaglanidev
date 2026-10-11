@@ -37,7 +37,7 @@ Do this once after connecting Search Console, then roughly monthly.
 - No FAQ, review or rating markup. There is nothing on the page to back it.
 - No keyword lists in copy. Descriptions say what the person does in plain language.
 - No bought links, link exchanges or automated outreach. Google's spam policies treat these as manipulation.
-- No special "AI search" files or schema. Google states that ordinary SEO fundamentals apply to AI features; there is no extra file to add.
+- No special "AI search" schema. Google states that ordinary SEO fundamentals apply to AI features. `public/llms.txt` exists at the owner's request as a short, agent-friendly site guide following the proposed llmstxt.org convention; it is not expected to affect rankings or citations. Keep it in step with `src/data` when projects or articles change.
 - No automation that posts, publishes or schedules on the owner's behalf.
 
 ## If you change something
